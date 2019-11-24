@@ -1,0 +1,62 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+__pycache__
+__pycache__/
+__pycache__/*
+/__pycache__/*
+/**/*/__pycache__/*
+services/users/project/api/__pycache__/
+services/users/project/__pycache__/
+services/users/project/api/__pycache__/*
+services/users/project/__pycache__/*
+node_modules
+node_modules/
+node_modules/*
+/node_modules
+/node_modules/
+.vscode
+.vscode/
+.reference
+.reference/
+env
+.env
+users/htmlcov/
+services/users/htmlcov/
+XDG_CACHE_HOME/*
+dockerstatus.txt
+.jest
+.vscode
+.jest/
+.vscode/
+yarn-error.log
+.jest/*
+.jest/cache/
+.jest/cache/*
+terraform/provider.tf
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+terraform/.terraform/*
+terraform/.terraform/
