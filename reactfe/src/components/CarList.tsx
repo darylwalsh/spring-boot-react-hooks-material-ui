@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import AddCar from './AddCar'
 import ReactTable from 'react-table'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -67,6 +68,18 @@ class CarList extends Component<CarListProps, CarsState> {
     }
   }
 
+  // Add new car
+  addCar(car: CarInterface) {
+    fetch(window._env_.REACT_APP_API_URL_CARS, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(car),
+    })
+      .then(res => this.fetchCars())
+      .catch(err => console.error(err))
+  }
   render() {
     const columns = [
       {
@@ -86,7 +99,7 @@ class CarList extends Component<CarListProps, CarsState> {
         accessor: 'year',
       },
       {
-        Header: 'Price €',
+        Header: 'Price $',
         accessor: 'price',
       },
       {
@@ -108,10 +121,12 @@ class CarList extends Component<CarListProps, CarsState> {
 
     return (
       <div className="App">
+        <AddCar addCar={this.addCar} fetchCars={this.fetchCars} />
         <ReactTable
           data={this.state.cars}
           columns={columns}
           filterable={true}
+          pageSize={10}
         />
         <ToastContainer autoClose={1500} />
       </div>
