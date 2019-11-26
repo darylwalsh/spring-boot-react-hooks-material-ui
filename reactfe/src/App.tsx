@@ -1,4 +1,5 @@
 import React from 'react'
+import MyList from './components/Form'
 import './App.css'
 
 const App: React.FC = () => {
@@ -16,6 +17,7 @@ const App: React.FC = () => {
           Learn React
         </a>
       </header>
+      <MyList />
     </div>
   )
 }
