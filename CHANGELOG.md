@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.9](https://github.com/darylwalsh/spring-boot-react-hooks-material-ui/compare/v0.1.8...v0.1.9) (2019-11-26)
+
+
+### Features
+
+* **car_edit:** add car edit function ([1136245](https://github.com/darylwalsh/spring-boot-react-hooks-material-ui/commit/1136245e13e059c476451bef135c7e1985d332b4))
+
+### [0.1.8](https://github.com/darylwalsh/spring-boot-react-hooks-material-ui/compare/v0.1.7...v0.1.8) (2019-11-26)
+
+
+### Features
+
+* **cars_add:** add car add function ([e0652f2](https://github.com/darylwalsh/spring-boot-react-hooks-material-ui/commit/e0652f2f31dac023cb6312d04e32024cc9380bb0))
+
+### [0.1.7](https://github.com/darylwalsh/spring-boot-react-hooks-material-ui/compare/v0.1.6...v0.1.7) (2019-11-26)
+
+
+### Features
+
+* **car_table:** add list/del car table ([014183f](https://github.com/darylwalsh/spring-boot-react-hooks-material-ui/commit/014183fc01ec125ddfd439058214f4a81907e6c8))
+
 ### [0.1.6](https://github.com/darylwalsh/spring-boot-react-hooks-material-ui/compare/v0.1.5...v0.1.6) (2019-11-26)
 
 ### [0.1.5](https://github.com/darylwalsh/spring-boot-react-hooks-material-ui/compare/v0.1.4...v0.1.5) (2019-11-24)
