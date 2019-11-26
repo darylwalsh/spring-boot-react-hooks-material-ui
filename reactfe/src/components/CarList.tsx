@@ -3,6 +3,10 @@ import AddCar from './AddCar'
 import EditCar from './EditCar'
 import ReactTable from 'react-table'
 import { ToastContainer, toast } from 'react-toastify'
+import { CSVLink } from 'react-csv'
+import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
+import env from '@beam-australia/react-env'
 import 'react-toastify/dist/ReactToastify.css'
 import 'react-table/react-table.css'
 
@@ -35,12 +39,13 @@ class CarList extends Component<CarListProps, CarsState> {
     super(props)
     this.state = { cars: [] }
   }
+
   componentDidMount() {
     this.fetchCars()
   }
 
   fetchCars = () => {
-    fetch(window._env_.REACT_APP_API_URL_CARS)
+    fetch(env('API_URL_CARS'))
       .then(response => response.json())
       .then(responseData => {
         this.setState({
@@ -71,7 +76,7 @@ class CarList extends Component<CarListProps, CarsState> {
 
   // Add new car
   addCar(car: CarInterface) {
-    fetch(window._env_.REACT_APP_API_URL_CARS, {
+    fetch(env('API_URL_CARS'), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -148,19 +153,30 @@ class CarList extends Component<CarListProps, CarsState> {
         width: 100,
         accessor: '_links.self.href',
         Cell: ({ value }: { value: string }) => (
-          <button
+          <Button
+            size="small"
+            color="secondary"
             onClick={() => {
               this.onDelClick(value)
             }}>
             Delete
-          </button>
+          </Button>
         ),
       },
     ]
 
     return (
       <div className="App">
-        <AddCar addCar={this.addCar} fetchCars={this.fetchCars} />
+        <Grid container>
+          <Grid item>
+            <AddCar addCar={this.addCar} fetchCars={this.fetchCars} />
+          </Grid>
+          <Grid item style={{ padding: 15 }}>
+            <CSVLink data={this.state.cars} separator=";">
+              Export CSV
+            </CSVLink>
+          </Grid>
+        </Grid>
         <ReactTable
           data={this.state.cars}
           columns={columns}

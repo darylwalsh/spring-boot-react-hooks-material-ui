@@ -1,0 +1,1 @@
+window._env = {"NODE_ENV":"development","REACT_APP_SCORES_SERVICE_URL":"http://localhost","REACT_APP_EXERCISES_SERVICE_URL":"http://localhost","REACT_APP_USERS_SERVICE_URL":"http://localhost","REACT_APP_API_GATEWAY_URL":" https://o6bh1x5ub1.execute-api.us-west-1.amazonaws.com/v1/execute","REACT_APP_API_URL_CARS":"http://localhost:8080/api/cars"};

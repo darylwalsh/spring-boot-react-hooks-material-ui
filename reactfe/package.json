@@ -10,6 +10,7 @@
     "@types/react-dom": "16.9.4",
     "axios": "^0.19.0",
     "react": "^16.12.0",
+    "react-csv": "^1.1.2",
     "react-dom": "^16.12.0",
     "react-scripts": "3.2.0",
     "react-table": "^6.10.3",
@@ -19,6 +20,7 @@
   },
   "scripts": {
     "dev": "chmod +x ./env.sh && ./env.sh && cp env-config.js ./public/ && react-scripts start",
+    "prestart": "react-env",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -41,8 +43,45 @@
   },
   "devDependencies": {
     "@bahmutov/add-typescript-to-cypress": "^2.1.2",
+    "@beam-australia/react-env": "^2.1.2",
+    "@types/react-csv": "^1.1.1",
     "@types/react-table": "^6.8.5",
+    "@types/react-test-renderer": "^16.9.1",
     "cypress": "^3.6.1",
+    "react-test-renderer": "^16.12.0",
+    "ts-jest": "^24.2.0",
     "webpack": "^4.41.2"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testMatch": [
+      "**/*.(test|spec).(ts|tsx)"
+    ],
+    "globals": {
+      "ts-jest": {
+        "babelConfig": true,
+        "tsConfig": "jest.tsconfig.json"
+      }
+    },
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "text-summary"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/mocks.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/mocks.js"
+    }
   }
 }
