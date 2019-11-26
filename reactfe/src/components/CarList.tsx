@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import AddCar from './AddCar'
+import EditCar from './EditCar'
 import ReactTable from 'react-table'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -80,6 +81,29 @@ class CarList extends Component<CarListProps, CarsState> {
       .then(res => this.fetchCars())
       .catch(err => console.error(err))
   }
+
+  // Update car
+  updateCar(car: CarInterface, link: string) {
+    fetch(link, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(car),
+    })
+      .then(res => {
+        toast.success('Changes saved', {
+          position: toast.POSITION.BOTTOM_LEFT,
+        })
+        this.fetchCars()
+      })
+      .catch(err =>
+        toast.error('Error when saving', {
+          position: toast.POSITION.BOTTOM_LEFT,
+        })
+      )
+  }
+
   render() {
     const columns = [
       {
@@ -101,6 +125,21 @@ class CarList extends Component<CarListProps, CarsState> {
       {
         Header: 'Price $',
         accessor: 'price',
+      },
+      {
+        id: 'updatebutton',
+        sortable: false,
+        filterable: false,
+        width: 100,
+        accessor: '_links.self.href',
+        Cell: ({ value, row }: { value: string; row: CarInterface }) => (
+          <EditCar
+            car={row}
+            link={value}
+            updateCar={this.updateCar}
+            fetchCars={this.fetchCars}
+          />
+        ),
       },
       {
         id: 'delbutton',
